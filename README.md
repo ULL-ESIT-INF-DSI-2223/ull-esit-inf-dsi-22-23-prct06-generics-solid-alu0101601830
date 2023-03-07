@@ -103,10 +103,10 @@ Los tests han sido realizados con Mocha Chai y con la metodología BDD, he reali
 
 Resultados de los tests:
 <p align="center">
-
+<img width="466" alt="image" src="https://user-images.githubusercontent.com/117380181/223527722-4f330856-c756-46fd-8255-bb00bdea5b2e.png">
 </p>
 
 Resultados del coverage:
 <p align="center">
-
+<img width="531" alt="image" src="https://user-images.githubusercontent.com/117380181/223528013-2b7765ec-5bc1-4548-9b50-d56c8665dd1a.png">
 </p>
