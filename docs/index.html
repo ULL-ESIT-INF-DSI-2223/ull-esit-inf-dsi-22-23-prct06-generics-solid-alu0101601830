@@ -22,8 +22,38 @@
 </a>
 <p><a href="https://coveralls.io/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct06-generics-solid-alu0101601830?branch=master"><img src="https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct06-generics-solid-alu0101601830/badge.svg?branch=master" alt="Coverage Status"></a></p>
 <p>La page se encuentra en: <a href="https://ull-esit-inf-dsi-2223.github.io/ull-esit-inf-dsi-22-23-prct06-generics-solid-alu0101601830/">https://ull-esit-inf-dsi-2223.github.io/ull-esit-inf-dsi-22-23-prct06-generics-solid-alu0101601830/</a></p>
-<p>Vamos a desarrollar la práctica 6</p>
-</div></div>
+
+<a href="#ejercicio-1" id="ejercicio-1" style="color: inherit; text-decoration: none;">
+  <h2>Ejercicio 1</h2>
+</a>
+<p>Este ejercicio va sobre la creación de una plataforma online donde guardar colecciones de películas, series o documentales. Tal como se dice en el enunciado, hay que crear distintas clases e interfaces. Yo he separado en distintos archivos lo que quería hacer en cada parte, mi diseño es el siguiente:</p>
+<ul>
+<li>Streamable.ts: Aquí he creado la interfaz general streamable con dos funciones, <code>searchItemByYear</code> y <code>searchItemByName</code>. Lo que hace cada una es buscar el elemento de la colección que coincida con el año de lanzamiento o el nombre respectivamente.</li>
+<li>BasicStreamableCollection.ts: Esta parte es ya una clase abstracta que es sobre una colección en general, más tarde especificaré si es una película, un documental o una serie. Esta clase implementa la interfaz <code>Streamable</code> por lo que hereda las funciones descritas anteriormente</li>
+<li>Media.ts: Este archivo lo he creado para hacer tres interfaces, una para Serie con los siguientes parámetros:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">    </span><span class="hl-1">nombre</span><span class="hl-0">: </span><span class="hl-2">string</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-1">año</span><span class="hl-0">: </span><span class="hl-2">number</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-1">temporadas</span><span class="hl-0">: </span><span class="hl-2">number</span><span class="hl-0">;</span>
+</code></pre>
+<p>Otra interfaz para Película con los parámetros:</p>
+<pre><code class="language-ts"><span class="hl-0">    </span><span class="hl-1">nombre</span><span class="hl-0">: </span><span class="hl-2">string</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-1">año</span><span class="hl-0">: </span><span class="hl-2">number</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-1">duracion</span><span class="hl-0">: </span><span class="hl-2">number</span><span class="hl-0">;</span>
+</code></pre>
+<p>La última interfaz para Documental con los parámetros:</p>
+<pre><code class="language-ts"><span class="hl-0">    </span><span class="hl-1">nombre</span><span class="hl-0">: </span><span class="hl-2">string</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-1">año</span><span class="hl-0">: </span><span class="hl-2">number</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-1">duracion</span><span class="hl-0">: </span><span class="hl-2">number</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-1">topico</span><span class="hl-0">: </span><span class="hl-2">string</span><span class="hl-0">;</span>
+</code></pre>
+<ul>
+<li>Por último, he creado tres archivos diferentes pero con la misma estructura, una para la colección de documentales, otra para la colección de series y la última para la colección de películas. Cada una de estas clases son subclases de <code>BasicStreamableCollection</code> por lo que heredan las funciones de la interfaz general <code>Streamable</code> y para cada una he creado funciones adicionales de búsqueda para otros elementos como <strong>duración</strong> o <strong>tópico</strong>.
+Para realizar la búsqueda en cada función he utilizado un filtro de la siguiente forma:
+<code>return this.collection.filter((documentales) =&gt; documentales.año === year);</code>. Esto es un caso de ejemplo pero en todos lo he realizado de la misma forma pero espeficicando lo que buscaba exactamente.</li>
+</ul>
+<p>Para los tests en Mocha Chai, los he realizado de forma BDD y he cubierto todas las funciones necesarias de cada elemento para asegurarme al 100% que funcionaban y también hacer el coverall y que diera un resultado de 100%. Resultados de los tests:</p>
+<p align="center">
+<img width="473" alt="image" src="https://user-images.githubusercontent.com/117380181/223433501-8a2293a9-d1cb-496d-83a4-ef7b11a1ec1c.png">
+</p>
+
+<p>Para el coverage:</p>
+<p align="center">
+<img width="523" alt="image" src="https://user-images.githubusercontent.com/117380181/223433605-cf0804a0-ba47-4cf1-a9cb-99fdde65e888.png">
+</p></div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
