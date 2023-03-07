@@ -73,7 +73,7 @@ En este ejercicio he creado una clase para recrear una Lista sin utilizar los m�
     }
     return i
 ```
-* **(map<U>(funcion: (elemento: T) => U))**: este método aplica a la lista una función en cada elemento y la devuelve. He recorrido los elementos de la lista y he ido anexando a la lista microlistas con el nuevo elemento aplicando la función:
+* **map(U)(funcion: (elemento: T) => U)**: este método aplica a la lista una función en cada elemento y la devuelve. He recorrido los elementos de la lista y he ido anexando a la lista microlistas con el nuevo elemento aplicando la función:
 ```ts
       for (let i = 0; i < this.length(); i++) {
         nuevaLista.append(new Lista<U>([funcion(this.get(i))]));
