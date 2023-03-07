@@ -33,10 +33,10 @@ Para realizar la búsqueda en cada función he utilizado un filtro de la siguien
 
 Para los tests en Mocha Chai, los he realizado de forma BDD y he cubierto todas las funciones necesarias de cada elemento para asegurarme al 100% que funcionaban y también hacer el coverall y que diera un resultado de 100%. Resultados de los tests:
 <p align="center">
-
+<img width="473" alt="image" src="https://user-images.githubusercontent.com/117380181/223433501-8a2293a9-d1cb-496d-83a4-ef7b11a1ec1c.png">
 </p>
 
 Para el coverage:
 <p align="center">
-
+<img width="523" alt="image" src="https://user-images.githubusercontent.com/117380181/223433605-cf0804a0-ba47-4cf1-a9cb-99fdde65e888.png">
 </p>
