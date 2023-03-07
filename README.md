@@ -40,3 +40,73 @@ Para el coverage:
 <p align="center">
 <img width="523" alt="image" src="https://user-images.githubusercontent.com/117380181/223433605-cf0804a0-ba47-4cf1-a9cb-99fdde65e888.png">
 </p>
+
+## Ejercicio 2
+En este ejercicio he creado una clase para recrear una Lista sin utilizar los métodos de Array.properties, para ello he creado una clase Lista y un atributo que es la variable `_elementos: T[]`. Esta variable es para los elementos de la lista. He creado un constructor y un get para la variable y después he ido implementando los métodos necesarios:
+* **toString()**: he creado un método toString() para poder imprimir las listas de forma: `[1,2,3,4,5]`
+* **get(indice:number)**: este método devuelve el elemento en el indice introducido, para hacer esto, solo he hecho un `return this.elementos[indice]`
+* **append(lista: Lista<T>)**: este método anexa una lista al final de la misma lista, para ello he recorrido un for de la lista que anexar para que vaya elemento a elemento introduciendolo al final de la lista original: 
+```ts
+      let auxiliar = this.length()
+      for (let i = 0; i < lista.length(); i++) {
+        this._elementos[auxiliar + i] = lista.get(i)
+      }
+```
+* **concatenate(listas: Lista<T>[])**: este método concatena varias listas a la vez en la original, para ello hago un for por cada lista y voy utilizando la función **append()** en cada una de ellas:
+```ts
+      for (const lista of listas) {
+        this.append(lista);
+      }
+```
+* **filter(predicado: (elemento: T) => boolean)**: este método aplica un predicado lógico a la lista para filtrar. Para ello recorro la lista entera y voy buscando que elementos cumplen el predicado lógico:
+```ts
+      for (let i = 0; i < this.length(); i++) {
+        const elemento = this.get(i);
+        if (predicado(elemento)) nuevaLista.append(new Lista<T>([elemento]));
+      }
+```
+* **length()**: devuelve el tamaño de los elementos, lo que he hecho ha sido un bucle while que vaya elemento por elemento hasta que sea null y entonces deja de contar:
+```ts
+    let i = 0;
+    while (this.get(i) != null){
+        i++;
+    }
+    return i
+```
+* **map<U>(funcion: (elemento: T) => U)**: este método aplica a la lista una función en cada elemento y la devuelve. He recorrido los elementos de la lista y he ido anexando a la lista microlistas con el nuevo elemento aplicando la función:
+```ts
+      for (let i = 0; i < this.length(); i++) {
+        nuevaLista.append(new Lista<U>([funcion(this.get(i))]));
+      }
+```
+* **reduce(funcion: (acumulador: T, elemento: T) => T, acumulador: T)**: este método hace que dada una lista, una función y un acumulador inicial, reduce cada elemento al acumulador utilizando la función. Para ello recorro cada elemento de la lista y voy aplicando a la variable `resultado` la función con resultado y el elemento de la iteración:
+```ts
+      for (let i = 0; i < this.length(); i++) {
+        resultado = funcion(resultado, this.get(i));
+      }
+```
+* **reverse()**: este método devuelve la lista revertida. He hecho un bucle for al revés que vaya desde el último elemento al primero y vaya añadiendolos en orden revertido:
+```ts
+      for (let i = this.length() - 1; i >= 0; i--) {
+        nuevaLista.append(new Lista<T>([this.get(i)]));
+      }
+```
+* **forEach(funcion: (elemento: T) => void)**: método que dada una lista y una función, aplica esa función para cada elemento de la lista. He hecho un bucle for para recorrer los elementos de la lista e ir aplicando la función sobre cada elemento:
+```ts
+    for (let i = 0; i < this.length(); i++) {
+        const elemento = this.get(i);
+        funcion(elemento);
+    }
+```
+
+Los tests han sido realizados con Mocha Chai y con la metodología BDD, he realizado un test para cada función para comprobar todas las funcionalidades y que el coverage sea del 100%. 
+
+Resultados de los tests:
+<p align="center">
+
+</p>
+
+Resultados del coverage:
+<p align="center">
+
+</p>

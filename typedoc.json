@@ -5,7 +5,8 @@
     "./src/ejercicio-1/Media.ts",
     "./src/ejercicio-1/PeliculasCollection.ts",
     "./src/ejercicio-1/SeriesCollection.ts",
-    "./src/ejercicio-1/Streamable.ts"
+    "./src/ejercicio-1/Streamable.ts",
+    "./src/ejercicio-2/Lista.ts"
   ],
   "out": "./docs"
 }

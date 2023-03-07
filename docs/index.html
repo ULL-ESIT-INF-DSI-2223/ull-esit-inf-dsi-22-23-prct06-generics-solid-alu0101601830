@@ -53,6 +53,64 @@ Para realizar la búsqueda en cada función he utilizado un filtro de la siguien
 <p>Para el coverage:</p>
 <p align="center">
 <img width="523" alt="image" src="https://user-images.githubusercontent.com/117380181/223433605-cf0804a0-ba47-4cf1-a9cb-99fdde65e888.png">
+</p>
+
+
+<a href="#ejercicio-2" id="ejercicio-2" style="color: inherit; text-decoration: none;">
+  <h2>Ejercicio 2</h2>
+</a>
+<p>En este ejercicio he creado una clase para recrear una Lista sin utilizar los métodos de Array.properties, para ello he creado una clase Lista y un atributo que es la variable <code>_elementos: T[]</code>. Esta variable es para los elementos de la lista. He creado un constructor y un get para la variable y después he ido implementando los métodos necesarios:</p>
+<ul>
+<li><strong>toString()</strong>: he creado un método toString() para poder imprimir las listas de forma: <code>[1,2,3,4,5]</code></li>
+<li><strong>get(indice:number)</strong>: este método devuelve el elemento en el indice introducido, para hacer esto, solo he hecho un <code>return this.elementos[indice]</code></li>
+<li><strong>append(lista: Lista<T>)</strong>: este método anexa una lista al final de la misma lista, para ello he recorrido un for de la lista que anexar para que vaya elemento a elemento introduciendolo al final de la lista original:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">      </span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">auxiliar</span><span class="hl-0"> = </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">length</span><span class="hl-0">()</span><br/><span class="hl-0">      </span><span class="hl-5">for</span><span class="hl-0"> (</span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">i</span><span class="hl-0"> = </span><span class="hl-6">0</span><span class="hl-0">; </span><span class="hl-2">i</span><span class="hl-0"> &lt; </span><span class="hl-2">lista</span><span class="hl-0">.</span><span class="hl-4">length</span><span class="hl-0">(); </span><span class="hl-2">i</span><span class="hl-0">++) {</span><br/><span class="hl-0">        </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-2">_elementos</span><span class="hl-0">[</span><span class="hl-2">auxiliar</span><span class="hl-0"> + </span><span class="hl-2">i</span><span class="hl-0">] = </span><span class="hl-2">lista</span><span class="hl-0">.</span><span class="hl-4">get</span><span class="hl-0">(</span><span class="hl-2">i</span><span class="hl-0">)</span><br/><span class="hl-0">      }</span>
+</code></pre>
+<ul>
+<li><strong>concatenate(listas: Lista<T>[])</strong>: este método concatena varias listas a la vez en la original, para ello hago un for por cada lista y voy utilizando la función <strong>append()</strong> en cada una de ellas:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">      </span><span class="hl-5">for</span><span class="hl-0"> (</span><span class="hl-3">const</span><span class="hl-0"> </span><span class="hl-7">lista</span><span class="hl-0"> </span><span class="hl-3">of</span><span class="hl-0"> </span><span class="hl-2">listas</span><span class="hl-0">) {</span><br/><span class="hl-0">        </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">append</span><span class="hl-0">(</span><span class="hl-2">lista</span><span class="hl-0">);</span><br/><span class="hl-0">      }</span>
+</code></pre>
+<ul>
+<li><strong>filter(predicado: (elemento: T) =&gt; boolean)</strong>: este método aplica un predicado lógico a la lista para filtrar. Para ello recorro la lista entera y voy buscando que elementos cumplen el predicado lógico:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">      </span><span class="hl-5">for</span><span class="hl-0"> (</span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">i</span><span class="hl-0"> = </span><span class="hl-6">0</span><span class="hl-0">; </span><span class="hl-2">i</span><span class="hl-0"> &lt; </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">length</span><span class="hl-0">(); </span><span class="hl-2">i</span><span class="hl-0">++) {</span><br/><span class="hl-0">        </span><span class="hl-3">const</span><span class="hl-0"> </span><span class="hl-7">elemento</span><span class="hl-0"> = </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">get</span><span class="hl-0">(</span><span class="hl-2">i</span><span class="hl-0">);</span><br/><span class="hl-0">        </span><span class="hl-5">if</span><span class="hl-0"> (</span><span class="hl-4">predicado</span><span class="hl-0">(</span><span class="hl-2">elemento</span><span class="hl-0">)) </span><span class="hl-2">nuevaLista</span><span class="hl-0">.</span><span class="hl-4">append</span><span class="hl-0">(</span><span class="hl-3">new</span><span class="hl-0"> </span><span class="hl-4">Lista</span><span class="hl-0">&lt;</span><span class="hl-8">T</span><span class="hl-0">&gt;([</span><span class="hl-2">elemento</span><span class="hl-0">]));</span><br/><span class="hl-0">      }</span>
+</code></pre>
+<ul>
+<li><strong>length()</strong>: devuelve el tamaño de los elementos, lo que he hecho ha sido un bucle while que vaya elemento por elemento hasta que sea null y entonces deja de contar:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">    </span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">i</span><span class="hl-0"> = </span><span class="hl-6">0</span><span class="hl-0">;</span><br/><span class="hl-0">    </span><span class="hl-5">while</span><span class="hl-0"> (</span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">get</span><span class="hl-0">(</span><span class="hl-2">i</span><span class="hl-0">) != </span><span class="hl-3">null</span><span class="hl-0">){</span><br/><span class="hl-0">        </span><span class="hl-2">i</span><span class="hl-0">++;</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">    </span><span class="hl-5">return</span><span class="hl-0"> </span><span class="hl-2">i</span>
+</code></pre>
+<ul>
+<li><strong>map<U>(funcion: (elemento: T) =&gt; U)</strong>: este método aplica a la lista una función en cada elemento y la devuelve. He recorrido los elementos de la lista y he ido anexando a la lista microlistas con el nuevo elemento aplicando la función:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">      </span><span class="hl-5">for</span><span class="hl-0"> (</span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">i</span><span class="hl-0"> = </span><span class="hl-6">0</span><span class="hl-0">; </span><span class="hl-2">i</span><span class="hl-0"> &lt; </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">length</span><span class="hl-0">(); </span><span class="hl-2">i</span><span class="hl-0">++) {</span><br/><span class="hl-0">        </span><span class="hl-2">nuevaLista</span><span class="hl-0">.</span><span class="hl-4">append</span><span class="hl-0">(</span><span class="hl-3">new</span><span class="hl-0"> </span><span class="hl-4">Lista</span><span class="hl-0">&lt;</span><span class="hl-8">U</span><span class="hl-0">&gt;([</span><span class="hl-4">funcion</span><span class="hl-0">(</span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">get</span><span class="hl-0">(</span><span class="hl-2">i</span><span class="hl-0">))]));</span><br/><span class="hl-0">      }</span>
+</code></pre>
+<ul>
+<li><strong>reduce(funcion: (acumulador: T, elemento: T) =&gt; T, acumulador: T)</strong>: este método hace que dada una lista, una función y un acumulador inicial, reduce cada elemento al acumulador utilizando la función. Para ello recorro cada elemento de la lista y voy aplicando a la variable <code>resultado</code> la función con resultado y el elemento de la iteración:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">      </span><span class="hl-5">for</span><span class="hl-0"> (</span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">i</span><span class="hl-0"> = </span><span class="hl-6">0</span><span class="hl-0">; </span><span class="hl-2">i</span><span class="hl-0"> &lt; </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">length</span><span class="hl-0">(); </span><span class="hl-2">i</span><span class="hl-0">++) {</span><br/><span class="hl-0">        </span><span class="hl-2">resultado</span><span class="hl-0"> = </span><span class="hl-4">funcion</span><span class="hl-0">(</span><span class="hl-2">resultado</span><span class="hl-0">, </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">get</span><span class="hl-0">(</span><span class="hl-2">i</span><span class="hl-0">));</span><br/><span class="hl-0">      }</span>
+</code></pre>
+<ul>
+<li><strong>reverse()</strong>: este método devuelve la lista revertida. He hecho un bucle for al revés que vaya desde el último elemento al primero y vaya añadiendolos en orden revertido:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">      </span><span class="hl-5">for</span><span class="hl-0"> (</span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">i</span><span class="hl-0"> = </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">length</span><span class="hl-0">() - </span><span class="hl-6">1</span><span class="hl-0">; </span><span class="hl-2">i</span><span class="hl-0"> &gt;= </span><span class="hl-6">0</span><span class="hl-0">; </span><span class="hl-2">i</span><span class="hl-0">--) {</span><br/><span class="hl-0">        </span><span class="hl-2">nuevaLista</span><span class="hl-0">.</span><span class="hl-4">append</span><span class="hl-0">(</span><span class="hl-3">new</span><span class="hl-0"> </span><span class="hl-4">Lista</span><span class="hl-0">&lt;</span><span class="hl-8">T</span><span class="hl-0">&gt;([</span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">get</span><span class="hl-0">(</span><span class="hl-2">i</span><span class="hl-0">)]));</span><br/><span class="hl-0">      }</span>
+</code></pre>
+<ul>
+<li><strong>forEach(funcion: (elemento: T) =&gt; void)</strong>: método que dada una lista y una función, aplica esa función para cada elemento de la lista. He hecho un bucle for para recorrer los elementos de la lista e ir aplicando la función sobre cada elemento:</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-0">    </span><span class="hl-5">for</span><span class="hl-0"> (</span><span class="hl-3">let</span><span class="hl-0"> </span><span class="hl-2">i</span><span class="hl-0"> = </span><span class="hl-6">0</span><span class="hl-0">; </span><span class="hl-2">i</span><span class="hl-0"> &lt; </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">length</span><span class="hl-0">(); </span><span class="hl-2">i</span><span class="hl-0">++) {</span><br/><span class="hl-0">        </span><span class="hl-3">const</span><span class="hl-0"> </span><span class="hl-7">elemento</span><span class="hl-0"> = </span><span class="hl-3">this</span><span class="hl-0">.</span><span class="hl-4">get</span><span class="hl-0">(</span><span class="hl-2">i</span><span class="hl-0">);</span><br/><span class="hl-0">        </span><span class="hl-4">funcion</span><span class="hl-0">(</span><span class="hl-2">elemento</span><span class="hl-0">);</span><br/><span class="hl-0">    }</span>
+</code></pre>
+<p>Los tests han sido realizados con Mocha Chai y con la metodología BDD, he realizado un test para cada función para comprobar todas las funcionalidades y que el coverage sea del 100%. </p>
+<p>Resultados de los tests:</p>
+<p align="center">
+
+</p>
+
+<p>Resultados del coverage:</p>
+<p align="center">
+
 </p></div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
@@ -75,12 +133,13 @@ Para realizar la búsqueda en cada función he utilizado un filtro de la siguien
 <ul>
 <li class="current selected"><a href="modules.html">doc-<wbr/>test</a>
 <ul>
-<li class="tsd-kind-module"><a href="modules/BasicStreamableCollection.html">Basic<wbr/>Streamable<wbr/>Collection</a></li>
-<li class="tsd-kind-module"><a href="modules/DocumentalesCollection.html">Documentales<wbr/>Collection</a></li>
-<li class="tsd-kind-module"><a href="modules/Media.html">Media</a></li>
-<li class="tsd-kind-module"><a href="modules/PeliculasCollection.html">Peliculas<wbr/>Collection</a></li>
-<li class="tsd-kind-module"><a href="modules/SeriesCollection.html">Series<wbr/>Collection</a></li>
-<li class="tsd-kind-module"><a href="modules/Streamable.html">Streamable</a></li></ul></li></ul></div></details></nav></div></div>
+<li class="tsd-kind-module"><a href="modules/ejercicio_1_BasicStreamableCollection.html">ejercicio-<wbr/>1/<wbr/>Basic<wbr/>Streamable<wbr/>Collection</a></li>
+<li class="tsd-kind-module"><a href="modules/ejercicio_1_DocumentalesCollection.html">ejercicio-<wbr/>1/<wbr/>Documentales<wbr/>Collection</a></li>
+<li class="tsd-kind-module"><a href="modules/ejercicio_1_Media.html">ejercicio-<wbr/>1/<wbr/>Media</a></li>
+<li class="tsd-kind-module"><a href="modules/ejercicio_1_PeliculasCollection.html">ejercicio-<wbr/>1/<wbr/>Peliculas<wbr/>Collection</a></li>
+<li class="tsd-kind-module"><a href="modules/ejercicio_1_SeriesCollection.html">ejercicio-<wbr/>1/<wbr/>Series<wbr/>Collection</a></li>
+<li class="tsd-kind-module"><a href="modules/ejercicio_1_Streamable.html">ejercicio-<wbr/>1/<wbr/>Streamable</a></li>
+<li class="tsd-kind-module"><a href="modules/ejercicio_2_Lista.html">ejercicio-<wbr/>2/<wbr/>Lista</a></li></ul></li></ul></div></details></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div><script src="assets/main.js"></script></body></html>
