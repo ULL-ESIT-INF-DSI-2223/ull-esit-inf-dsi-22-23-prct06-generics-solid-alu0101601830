@@ -1,5 +1,5 @@
 /**
- * A generic interface for collections of streamable items
+ * Interfaz genérica para streamable
  * @interface Streamable
  */
 export interface Streamable {
