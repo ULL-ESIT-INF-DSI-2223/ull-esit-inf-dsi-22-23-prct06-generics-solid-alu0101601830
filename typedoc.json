@@ -1,6 +1,11 @@
 {
   "entryPoints": [
-    "./src/basicFunctions.ts"
+    "./src/ejercicio-1/BasicStreamableCollection.ts",
+    "./src/ejercicio-1/DocumentalesCollection.ts",
+    "./src/ejercicio-1/Media.ts",
+    "./src/ejercicio-1/PeliculasCollection.ts",
+    "./src/ejercicio-1/SeriesCollection.ts",
+    "./src/ejercicio-1/Streamable.ts"
   ],
   "out": "./docs"
 }
