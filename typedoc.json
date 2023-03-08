@@ -6,7 +6,13 @@
     "./src/ejercicio-1/PeliculasCollection.ts",
     "./src/ejercicio-1/SeriesCollection.ts",
     "./src/ejercicio-1/Streamable.ts",
-    "./src/ejercicio-2/Lista.ts"
+    "./src/ejercicio-2/Lista.ts",
+    "./src/ejercicio-3/Artista.ts",
+    "./src/ejercicio-3/Biblioteca.ts",
+    "./src/ejercicio-3/Cancion.ts",
+    "./src/ejercicio-3/Disco.ts",
+    "./src/ejercicio-3/Discografia.ts",
+    "./src/ejercicio-3/Single.ts"
   ],
   "out": "./docs"
 }
