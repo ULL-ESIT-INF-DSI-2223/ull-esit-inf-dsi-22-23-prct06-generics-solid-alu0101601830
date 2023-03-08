@@ -119,9 +119,9 @@ En este ejercicio debiamos ampliar el ejercicio de la Biblioteca musical de la p
 ```
 Y después lo que he hecho es que Disco tiene una variable extra: `private _canciones: Cancion[]` mientras que Single tiene el atributo `private _cancion: Cancion`. Aparte de estos cambios, he cambiado la variable discografia a Artista de forma que pueda tener tanto Singles como Discos: `private _discografia: Discografia[]`. En este ejercicio no he hecho mucho más, lo único es que he aumentado el número de tests (incluyendo setters y getters) para tener un porcentaje de coverage al 100%. Los resultados han sido los siguientes:
 <p align="center">
-
+<img width="484" alt="image" src="https://user-images.githubusercontent.com/117380181/223790497-010da0cb-594e-4978-8373-af50398cbc52.png">
 </p>
 Y los resultados del coverage:
 <p align="center">
-
+<img width="524" alt="image" src="https://user-images.githubusercontent.com/117380181/223790640-87a87a54-1ca7-4b11-b763-cbb526b3534d.png">
 </p>
