@@ -26,7 +26,7 @@ export class Single extends Discografia{
   /**
    * Establece la cancion del single
    */
-  set canciones(value: Cancion) {
+  set cancion(value: Cancion) {
     this._cancion = value;
   }
 }

@@ -1,4 +1,4 @@
-import {Disco} from "./Disco";
+import {Discografia} from "./Discografia";
 
 /**
  * Clase que representa un artista musical.
@@ -14,7 +14,7 @@ export class Artista {
     constructor(
       private _nombre: string,
       private _oyentes: number,
-      private _discografia: Disco[]
+      private _discografia: Discografia[]
     ) {}
   
     /**
@@ -53,7 +53,7 @@ export class Artista {
      * Obtiene la discografía del artista.
      * @returns La discografía del artista.
      */
-    get discografia(): Disco[] {
+    get discografia(): Discografia[] {
       return this._discografia;
     }
 
@@ -61,7 +61,7 @@ export class Artista {
      * Establece la discografía del artista.
      * @param value - La nueva discografía del artista.
      */
-    set discografia(value: Disco[]) {
+    set discografia(value: Discografia[]) {
       this._discografia = value;
     }
 

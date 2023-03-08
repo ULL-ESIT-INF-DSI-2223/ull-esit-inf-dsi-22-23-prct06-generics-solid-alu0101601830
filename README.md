@@ -110,3 +110,18 @@ Resultados del coverage:
 <p align="center">
 <img width="531" alt="image" src="https://user-images.githubusercontent.com/117380181/223528013-2b7765ec-5bc1-4548-9b50-d56c8665dd1a.png">
 </p>
+
+## Ejercicio 3
+En este ejercicio debiamos ampliar el ejercicio de la Biblioteca musical de la práctica anterior. Lo que debíamos hacer era añadir *single*. Para ello, he creado una clase general Discografia y dos subclases de esta: Disco y Single. Los atributos que tiene Discografia son:
+```ts
+    private _nombre: string;
+    private _año: number;
+```
+Y después lo que he hecho es que Disco tiene una variable extra: `private _canciones: Cancion[]` mientras que Single tiene el atributo `private _cancion: Cancion`. Aparte de estos cambios, he cambiado la variable discografia a Artista de forma que pueda tener tanto Singles como Discos: `private _discografia: Discografia[]`. En este ejercicio no he hecho mucho más, lo único es que he aumentado el número de tests (incluyendo setters y getters) para tener un porcentaje de coverage al 100%. Los resultados han sido los siguientes:
+<p align="center">
+
+</p>
+Y los resultados del coverage:
+<p align="center">
+
+</p>
