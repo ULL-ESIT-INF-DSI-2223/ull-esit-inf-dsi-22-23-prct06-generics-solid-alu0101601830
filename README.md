@@ -155,10 +155,12 @@ Ahora he creado dos subclases: `NumericSearchableCollection` y `StringSearchable
 
 He realizado los tests en Mocha Chai con distintos casos para probar la funcionalidad del programa y los resultados me han quedado asi:
 <p align="center">
+<img width="559" alt="image" src="https://user-images.githubusercontent.com/117380181/224008213-56b1147e-c7cf-409f-a0f1-ea7378ccecf7.png">
 </p>
 
 Mientras que los resultados del coverage me han quedado asi:
 <p align="center">
+<img width="533" alt="image" src="https://user-images.githubusercontent.com/117380181/224008322-06c659c2-ff13-439d-8d4e-a291859c0ee7.png">
 </p>
 
 ## Conclusiones
