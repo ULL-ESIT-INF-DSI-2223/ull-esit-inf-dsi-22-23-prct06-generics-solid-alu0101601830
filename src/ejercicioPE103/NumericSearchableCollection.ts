@@ -12,10 +12,7 @@ export class NumericSearchableCollection extends SearchableCollection<number> {
      * @returns {number[]} Array con todas las ocurrencias del elemento
      */    
     search(item: number): number[] {
-        let resultado = [0]
-        this.collection.forEach( (elemento) => {
-            if (elemento === item) resultado.push(elemento);
-        })
-        return resultado;
+        const found:number[] | undefined = this.collection.filter(element => element === item)
+        return found;
     }
 }
