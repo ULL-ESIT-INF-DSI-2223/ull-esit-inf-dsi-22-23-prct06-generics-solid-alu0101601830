@@ -125,3 +125,41 @@ Y los resultados del coverage:
 <p align="center">
 <img width="524" alt="image" src="https://user-images.githubusercontent.com/117380181/223790640-87a87a54-1ca7-4b11-b763-cbb526b3534d.png">
 </p>
+
+## Ejercicio PE103
+En este ejercicio nos han pedido que debiamos crear dos interfaces genéricas, una `Collectable` y la otra `Searchable`. Estas dos interfaces las he creado en dos ficheros distintos y he declarado las funciones que deben realizar pero de forma genérica:
+```ts
+export interface Searchable<T> {
+    search(item: T): T[];
+}
+```
+Mientras que la otra interfaz es de forma:
+```ts
+export interface Collectable<T> {
+    addItem(item: T): void;
+    getItem(item: number): T | undefined;
+    removeItem(item: number): T | undefined;
+    getNumberOfItems(): number;
+}
+```
+A continuación he creado una clase abtracta que se llama `SearchableCollection` que implementa estas dos interfaces y además tiene dos subclases. En esta clase he desarrollado todos los métodos de `Collectable`:
+
+* **addItem(item: T: void):** en esta función he hecho un simple `this.collection.push(item)`
+* **getItem(item:number): T | undefined:** primero compruebo que el item no esté fuera de rango con: `if (item >= this.getNumberOfItems()) return undefined` y después devuelvo el item en la posición dada: `return this.collection[item]`
+* **removeItem(item:number): T | undefined:** primero hago la comprobación de que no esté fuera de rango igual que en la función anterior y despues hago un slice para eliminar el item metiendole como argumentos la posición del item y la siguiente: `this.collection.slice(item, item + 1)`, después devuelvo el propio item
+* **getNumberOfItems(): number:** aquí utilizo la función `length` como `return this.collection.length;`
+
+Ahora he creado dos subclases: `NumericSearchableCollection` y `StringSearchableCollection`, en cada uno heredo todas las funciones de la clase superior e implemento la función search:
+* **Search en string:** utilizo *filter()* para poder filtrar los elementos que busco: `const found:string[] = this.collection.filter(element => element === item)`
+* **Search en number:** utilizo *filter()* para poder filtrar los elementos que busco: `const found:number[] = this.collection.filter(element => element === item)`
+
+He realizado los tests en Mocha Chai con distintos casos para probar la funcionalidad del programa y los resultados me han quedado asi:
+<p align="center">
+</p>
+
+Mientras que los resultados del coverage me han quedado asi:
+<p align="center">
+</p>
+
+## Conclusiones
+En esta práctica he aprendido a utilizar mejor las clases abstractas y la implementación de interfaces, es algo que no no tenía muy claro con anterioridad pero que ahora lo entiendo bastante mejor.
