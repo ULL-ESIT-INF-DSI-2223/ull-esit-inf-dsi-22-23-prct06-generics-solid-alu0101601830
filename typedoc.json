@@ -12,7 +12,12 @@
     "./src/ejercicio-3/Cancion.ts",
     "./src/ejercicio-3/Disco.ts",
     "./src/ejercicio-3/Discografia.ts",
-    "./src/ejercicio-3/Single.ts"
+    "./src/ejercicio-3/Single.ts",
+    "./src/ejercicioPE103/Collectable.ts",
+    "./src/ejercicioPE103/NumericSearchableCollection.ts",
+    "./src/ejercicioPE103/Searchable.ts",
+    "./src/ejercicioPE103/SearchableCollection.ts",
+    "./src/ejercicioPE103/StringSearchableCollection.ts"
   ],
   "out": "./docs"
 }

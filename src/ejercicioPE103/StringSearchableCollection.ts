@@ -5,7 +5,7 @@ import { SearchableCollection } from "./SearchableCollection";
  * @extends SearchableCollection<string>
  * @class
  */
-export class NumericSearchableCollection extends SearchableCollection<string> {
+export class StringSearchableCollection extends SearchableCollection<string> {
     /**
      * Busca una string y todas sus ocurrencias
      * @param {string} Elemento a buscar
